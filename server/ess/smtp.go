@@ -11,8 +11,10 @@ import (
 	"github.com/yoshd/nc-ess-grpc-proxy/pb"
 )
 
-const SMTPServer = "ess-smtp.cloud.nifty.com"
-const SMTPPort = 587
+const (
+	SMTPServer = "ess-smtp.cloud.nifty.com"
+	SMTPPort = 587
+)
 
 func (s *proxy) SendEmail(ctx context.Context, in *pb.SendEmailRequest) (*pb.SendEmailReply, error) {
 	auth := smtp.PlainAuth(
