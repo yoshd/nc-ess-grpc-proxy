@@ -18,7 +18,7 @@ import (
 	"log"
 )
 
-const (
+var (
 	host     string   = "YourESSProxyHost"
 	port     string   = ":YourESSProxyPort"
 	username string   = "YourESSSMTPUsername"
@@ -41,7 +41,7 @@ func main() {
 
 	c := pb.NewESSProxyClient(conn)
 
-	auth := pb.AuthInfo{Username: username, Password: pasword}
+	auth := pb.AuthInfo{Username: username, Password: password}
 	s := pb.SendEmailRequest{
 		Auth:     &auth,
 		FromAddr: fromAddr,
