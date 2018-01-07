@@ -1,5 +1,7 @@
 # nc-ess-grpc-proxy
 
+This is a proxy for using Nifcloud ESS with gRPC
+
 ## Client samples
 
 ### Go
