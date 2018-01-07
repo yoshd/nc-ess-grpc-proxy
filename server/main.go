@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net"
+	"flag"
 
 	"google.golang.org/grpc"
 
@@ -10,8 +11,12 @@ import (
 	"github.com/yoshd/nc-ess-grpc-proxy/pb"
 )
 
+var (
+	port = flag.String("port", ":13009", "port :port")
+)
+
 func main() {
-	lis, err := net.Listen("tcp", ":13009")
+	lis, err := net.Listen("tcp", *port)
 	if err != nil {
 		log.Fatal(err)
 	}
