@@ -13,7 +13,7 @@ import (
 
 const (
 	SMTPServer = "ess-smtp.cloud.nifty.com"
-	SMTPPort = 587
+	SMTPPort   = 587
 )
 
 func (s *proxy) SendEmail(ctx context.Context, in *pb.SendEmailRequest) (*pb.SendEmailReply, error) {
