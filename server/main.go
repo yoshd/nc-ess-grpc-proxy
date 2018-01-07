@@ -1,11 +1,11 @@
 package main
 
 import (
-	"log"
 	"net"
 	"flag"
 
 	"google.golang.org/grpc"
+	"github.com/golang/glog"
 
 	"github.com/yoshd/nc-ess-grpc-proxy/server/ess"
 	"github.com/yoshd/nc-ess-grpc-proxy/pb"
@@ -16,9 +16,12 @@ var (
 )
 
 func main() {
+	flag.Parse()
+	defer glog.Flush()
+
 	lis, err := net.Listen("tcp", *port)
 	if err != nil {
-		log.Fatal(err)
+		glog.Fatal(err)
 	}
 
 	s := grpc.NewServer()

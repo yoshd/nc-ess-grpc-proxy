@@ -1,12 +1,12 @@
 package ess
 
 import (
-	"log"
 	"net/smtp"
 	"strconv"
 	"strings"
 
 	"golang.org/x/net/context"
+	"github.com/golang/glog"
 
 	"github.com/yoshd/nc-ess-grpc-proxy/pb"
 )
@@ -32,10 +32,10 @@ func (s *proxy) SendEmail(ctx context.Context, in *pb.SendEmailRequest) (*pb.Sen
 		[]byte(text),
 	)
 	if err != nil {
-		log.Fatal(err)
+		glog.Fatal(err)
 		return &pb.SendEmailReply{Result: "NG"}, err
 	}
-	log.Println("Result: OK")
+	glog.Info("Result: OK")
 	return &pb.SendEmailReply{Result: "OK"}, nil
 }
 
